@@ -1,4 +1,4 @@
-# WebpackBin project
+# Functional react with ramda
 
 ## Start
 
