@@ -35,7 +35,8 @@ export function stateManager (initialState) {
     subscribe: (cb) => {
       registerHandler('store:updated', cb);
     },
-    dispatch: model
+    dispatch: model,
+    state: model.state
   };
 };
 

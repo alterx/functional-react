@@ -1,5 +1,7 @@
 import App from './app';
-import { stateManager, actions, actionConnect, renderer } from './lib';
+import vraf from 'virtual-raf';
+import vdom from 'virtual-dom';
+import { stateManager, actions, actionConnect } from './lib';
 
 const initialState = {
   name: 'Carlos',
@@ -9,9 +11,10 @@ const initialState = {
 const store = stateManager(initialState);
 const bindedActions = actions(store);
 const ConnectedApp = actionConnect(bindedActions, App);
-const render = renderer(document.getElementById('app'), ConnectedApp);
-render(initialState);
+
+const tree = vraf(initialState, ConnectedApp, vdom);
+document.getElementById('app').appendChild(tree.render());
 
 store.subscribe((state) => {
-  render(state);
+  tree.update(state);
 });

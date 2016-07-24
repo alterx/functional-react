@@ -1,31 +1,27 @@
-import React from 'react';
+import h from 'virtual-dom/h';
 import TodoList from './todo';
 
-class App extends React.Component {
-  constructor (props) {
-    super(props);
+const App = ({name, items, actions}) => {
+  const input = h('input', {
+    id: 'todoInput',
+    type: 'text',
+    oninput: (event) => { input.properties.value = event.target.value; }
+  });
 
-    this.addToDo = this.addToDo.bind(this);
-  }
-
-  addToDo () {
-    const { actions } = this.props;
-    if (this.refs.newTodo) {
-      actions.addToDo(this.refs.newTodo.value);
-      this.refs.newTodo.value = '';
-    }
-  }
-
-  render () {
-    const { items, name } = this.props;
-
-    return <div className="container">
-      <h1>Hello {name}</h1>
-      <input type="text" ref="newTodo" autoFocus />
-      <button onClick={this.addToDo}>Add</button>
-      <TodoList items={items} />
-    </div>;
-  }
-}
+  return h('div', [
+    h('h1', 'Hello ' + name),
+    input,
+    h('button', {
+      onclick: (ev) => {
+        if (!input.properties.value) {
+          return;
+        }
+        actions.addToDo(input.properties.value);
+        input.properties.value = '';
+      }
+    }, 'Add'),
+    TodoList({items})
+  ]);
+};
 
 export default App;
