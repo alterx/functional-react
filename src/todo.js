@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import { compose, prop, map } from 'ramda';
 
 const WrapChildren = (child) => ({children: child});
