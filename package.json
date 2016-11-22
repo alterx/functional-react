@@ -6,11 +6,11 @@
     "start": "webpack-dev-server --content-base build/"
   },
   "dependencies": {
+    "linkref": "^1.0.1",
     "lodash-fp": "^0.10.4",
     "node-uuid": "^1.4.7",
+    "preact": "^6.4.0",
     "ramda": "0.21.0",
-    "react": "0.14.7",
-    "react-dom": "0.14.7",
     "send-action": "^2.0.2",
     "whatwg-fetch": "^1.0.0",
     "xtend": "^4.0.1"

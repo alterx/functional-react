@@ -1,7 +1,8 @@
-import React from 'react';
+import { h, Component } from 'preact';
+import linkRef from 'linkref';
 import TodoList from './todo';
 
-class App extends React.Component {
+class App extends Component {
   constructor (props) {
     super(props);
 
@@ -21,7 +22,7 @@ class App extends React.Component {
 
     return <div className="container">
       <h1>Hello {name}</h1>
-      <input type="text" ref="newTodo" autoFocus />
+      <input type="text" ref={linkRef(this, 'newTodo')} autoFocus />
       <button onClick={this.addToDo}>Add</button>
       <TodoList items={items} />
     </div>;

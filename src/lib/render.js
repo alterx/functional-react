@@ -1,8 +1,10 @@
-import ReactDOM from 'react-dom';
+import { render } from 'preact';
 import { curry } from 'ramda';
 
+let root;
+
 const renderer = curry((node, component, props) => {
-  ReactDOM.render(component(props), node);
+  root = render(component(props), node, root);
 });
 
 export default renderer;
