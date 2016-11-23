@@ -9,8 +9,8 @@
     "lodash-fp": "^0.10.4",
     "node-uuid": "^1.4.7",
     "ramda": "0.21.0",
-    "react": "0.14.7",
-    "react-dom": "0.14.7",
+    "react": "15.4.1",
+    "react-dom": "15.4.1",
     "send-action": "^2.0.2",
     "whatwg-fetch": "^1.0.0",
     "xtend": "^4.0.1"
