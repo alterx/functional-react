@@ -1,14 +1,12 @@
 import { h } from 'preact';
 import { compose, prop, map } from 'ramda';
 
-const WrapChildren = (child) => ({children: child});
-
-const Container = compose(({children}) => (<div>
+const Container = ({children}) => (<div>
   <h1>I'm a list</h1>
   {children}
-</div>), WrapChildren);
+</div>);
 
-const List = compose(({children}) => (<ul>{children}</ul>), WrapChildren);
+const List = ({children}) => (<ul>{children}</ul>);
 
 const ListItem = ({ id, text }) => (<li key={id}>
   <span>{text}</span>
