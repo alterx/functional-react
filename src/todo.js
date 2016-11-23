@@ -1,12 +1,14 @@
 import React from 'react';
 import { compose, prop, map } from 'ramda';
 
-const Container = ({children}) => (<div>
+const WrapChildren = (child) => ({children: child});
+
+const Container = compose(({children}) => (<div>
   <h1>I'm a list</h1>
   {children}
-</div>);
+</div>), WrapChildren);
 
-const List = ({children}) => (<ul>{children}</ul>);
+const List = compose(({children}) => (<ul>{children}</ul>), WrapChildren);
 
 const ListItem = ({ id, text }) => (<li key={id}>
   <span>{text}</span>
@@ -19,3 +21,4 @@ const TodoList = ({items}) => {
 };
 
 export default TodoList;
+
