@@ -28,4 +28,10 @@ class App extends React.Component {
   }
 }
 
+App.propTypes = {
+  actions: React.PropTypes.any,
+  items: React.PropTypes.any,
+  name: React.PropTypes.any
+};
+
 export default App;
