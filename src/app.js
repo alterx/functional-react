@@ -6,11 +6,6 @@ class App extends Component {
     super(props);
 
     this.addToDo = this.addToDo.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange (event) {
-    this.setState({ newTodo: event.target.value });
   }
 
   addToDo () {
@@ -30,7 +25,7 @@ class App extends Component {
       <input
         type="text"
         value={state.newTodo}
-        onChange={this.handleChange}
+        onChange={this.linkState('newTodo')}
         autoFocus
       />
       <button onClick={this.addToDo}>Add</button>
